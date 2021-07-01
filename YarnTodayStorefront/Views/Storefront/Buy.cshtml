@@ -15,9 +15,6 @@
         Available: @Model.Quantity
         <br />
     </p>
-    @{
-        int newQuantity = Model.Quantity - 1;
-    }
 
     <form method="post">
         <p>
@@ -29,11 +26,14 @@
 
             <input value="@Model.Description" type="hidden" name="Description" />
 
-            <input value="@newQuantity" type="hidden" name="Quantity" />
+            <input value="@Model.Quantity" type="hidden" name="Quantity" />
 
             <input value="@Model.Photo" type="hidden" name="Photo" />
+
+            <input style="width: 20%" type="number" name="Amount" min="1" max="@Model.Quantity" value="1"/>
         </p>
         <br />
         <input type="submit" value="Buy @Model.Name in @Model.Color" />
     </form>
+
 </div>

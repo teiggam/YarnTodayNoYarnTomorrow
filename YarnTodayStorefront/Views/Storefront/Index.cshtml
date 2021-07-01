@@ -1,28 +1,49 @@
 ﻿@model IEnumerable<Product>
 
 <div style="padding-left: 25%; padding-right: 25%">
-<h1 style="color: purple">Yarn Inventory</h1>
+    <h1 style="color: purple">Yarn Inventory</h1>
 
     @foreach (Product p in Model)
     {
-        <div>
+        if (p.Quantity == 0)
+        {
             <div style="float: right; margin: 0px 0px 15px 15px; border:2px solid rgb(3, 31, 3);">
                 <img src="~/@p.Photo" width="150" />
             </div>
-            <p>
-                <h3>@p.Name</h3>
-                Color: @p.Color<br>
-                Price: $@Math.Round(p.Price, 2)<br>
-                Description: @p.Description<br>
-                Available: @p.Quantity<br />
-                <center>
-                    <a asp-action="Buy" asp-controller="Storefront" asp-route-Id="@p.Id"><input action="Buy" type="submit" value="Buy Yarn" /></a>
-                </center>
+            <div>
+                <p>
+                    <h3>@p.Name</h3>
+                    Color: @p.Color<br />
+                    SOLD OUT
+                </p>
+            </div>
+            <br /><br /><br />
 
-            </p>
-            <br />
-        </div>
+        }
+        else
+        {
+            <div style="float: right; margin: 0px 0px 15px 15px; border:2px solid rgb(3, 31, 3);">
+                <img src="~/@p.Photo" width="150" />
+            </div><div>
+                <p>
+                    <h3>@p.Name</h3>
+                    Color: @p.Color<br>
+                    Price: $@Math.Round(p.Price, 2)<br>
+                    Description: @p.Description<br>
+                    Available: @p.Quantity<br />
+
+                    <center>
+                        <a asp-action="Buy" asp-controller="Storefront" asp-route-Id="@p.Id"><input action="Buy" type="submit" value="Buy Yarn" /></a>
+                    </center>
+
+                </p>
+                <br />
+            </div>
+
+
+        }
     }
-   
-
 </div>
+
+
+

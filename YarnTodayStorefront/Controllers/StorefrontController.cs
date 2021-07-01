@@ -23,14 +23,18 @@ namespace YarnTodayStorefront.Controllers
         }
 
         [HttpPost]
-        public IActionResult Buy(Product p)
+        public IActionResult Buy(Product p, int Amount)
         {
             try
             {
                 if (p.Quantity > 0)
                 {
-                    db.Products.Update(p);
-                    db.SaveChanges();
+                    if (Amount <= p.Quantity)
+                    {
+                        p.Quantity -= Amount;
+                        db.Products.Update(p);
+                        db.SaveChanges();
+                    }
                 }
                 return RedirectToAction("Index", "Storefront");
             }
