@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Product>
+
+<div style="padding-left: 25%; padding-right: 25%">
+    <h1 style="color: midnightblue">Stock</h1>
+
+    <p>
+        <a asp-action="AddProduct" asp-controller="Product">Click</a> to add a new product to inventory.
+    </p>
+    <p>
+        <a asp-action="ReplenishStock" asp-controller="Product">Click</a> to replenish current stock.
+    </p>
+
+    @foreach (Product p in Model)
+    {
+        <p>
+
+            @p.Name in @p.Color<br>
+            <a asp-action="Details" asp-controller="Product" asp-route-Id="@p.Id">Details</a><br />
+            <a asp-action="Update" asp-controller="Product" asp-route-Id="@p.Id"><input type="submit" value="Update" /></a>
+            <a asp-action="Delete" asp-controller="Product" asp-route-Id="@p.Id"><input type="submit" value="Delete" /></a><br />
+        </p>
+
+        <br />
+
+    }
+</div>
+

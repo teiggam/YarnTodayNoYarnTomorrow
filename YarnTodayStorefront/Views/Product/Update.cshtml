@@ -1,0 +1,35 @@
+﻿@model Product
+
+<div style="padding-left: 25%; padding-right: 25%">
+    <h1 style="color: midnightblue">Add Product</h1>
+    <p>Please use the form below to enter new product information into the stock database.</p>
+
+    <form method="post">
+        <p>
+            Name/Brand<br />
+            <input value="@Model.Name" type="text" name="Name" maxlength="30" required />
+        </p>
+        <p>
+            Color<br />
+            <input value="@Model.Color" type="text" name="Color" maxlength="40" required />
+        </p>
+        <p>
+            Price<br />
+            <input value="@Model.Price" type="number" min="0.00" step="0.01" name="Price" required />
+        </p>
+        <p>
+            Quantity<br />
+            <input value="@Model.Quantity" type="number" name="Quantity" required /><br />
+        <p>
+            Description<br />
+            <input value="@Model.Description" type="text" name="Description" maxlength="200" />
+        </p>
+        <p>
+            Image URL<br />
+            <input value="@Model.Photo" type="text" name="Photo" maxlength="500" />
+        </p>
+
+        <br />
+        <input type="submit" value="Update Product" />
+    </form>
+</div>

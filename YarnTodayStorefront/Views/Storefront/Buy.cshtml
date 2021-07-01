@@ -1,0 +1,39 @@
+﻿@model Product
+
+<div style="padding-left: 25%; padding-right: 25%">
+    <div style="float: right; margin: 0px 0px 15px 15px; border:2px solid rgb(3, 31, 3);">
+        <img src="~/@Model.Photo" width="500" />
+    </div>
+    <p>
+        <h3>@Model.Name</h3>
+        Color: @Model.Color
+        <br>
+        Price: $@Math.Round(Model.Price, 2)
+        <br>
+        Description: @Model.Description
+        <br>
+        Available: @Model.Quantity
+        <br />
+    </p>
+    @{
+        int newQuantity = Model.Quantity - 1;
+    }
+
+    <form method="post">
+        <p>
+            <input value="@Model.Name" type="hidden" name="Name" required />
+
+            <input value="@Model.Color" type="hidden" name="Color" />
+
+            <input value="@Model.Price" type="hidden" name="Price" />
+
+            <input value="@Model.Description" type="hidden" name="Description" />
+
+            <input value="@newQuantity" type="hidden" name="Quantity" />
+
+            <input value="@Model.Photo" type="hidden" name="Photo" />
+        </p>
+        <br />
+        <input type="submit" value="Buy @Model.Name in @Model.Color" />
+    </form>
+</div>

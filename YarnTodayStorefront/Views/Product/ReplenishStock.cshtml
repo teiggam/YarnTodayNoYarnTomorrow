@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Product>
+
+<div style="padding-left: 25%; padding-right: 25%">
+    <h1>Thank you for replenishing the store stock.</h1>
+    <p>
+        All stock items with a quantity of less than 10, have been replenished to 10.<br /><br />
+        Keep up the great work!
+    </p>
+    <h2>
+        Items updated:
+    </h2>
+    @{ foreach (Product p in Model)
+        {
+            <p>
+                @p.Name in @p.Color
+            </p>
+        }
+    }
+
+
+</div>

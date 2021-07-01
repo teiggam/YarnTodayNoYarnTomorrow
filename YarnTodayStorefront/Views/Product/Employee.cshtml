@@ -1,0 +1,10 @@
+﻿@model Employee
+
+<div style="padding-left: 25%; padding-right: 25%">
+    <p>Please verify by entering your employee ID number below.</p>
+
+    @Html.PasswordFor(m => m.Password)<br /><br />
+
+    <a asp-action="Index" asp-controller="Product"><input type="submit" value="I'm an employee!" /></a>
+
+</div>

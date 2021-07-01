@@ -1,0 +1,16 @@
+﻿
+@model Product
+
+    <div style="padding-left: 25%; padding-right: 25%">
+        <div>
+            <h2>@Model.Name</h2>
+            <p>Id: @Model.Id</p>
+            <p>Color: @Model.Color</p>
+            <p>Price: @Model.Price</p>
+            <p>Quantity: @Model.Quantity</p>
+            <p>Description: @Model.Description</p>
+            <p>Image URL: @Model.Photo</p>
+            <img src="~/@Model.Photo" size="35%" />
+            
+        </div>
+    </div>
